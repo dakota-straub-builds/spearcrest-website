@@ -30,9 +30,9 @@ export default function Stats() {
     io.observe(ref.current);
     return () => io.disconnect();
   }, []);
-  const a = useCountUp(60, 1200, seen);
-  const b = useCountUp(500, 1600, seen);
-  const c = useCountUp(3, 1200, seen);
+  const a = useCountUp(300, 1400, seen);
+  const b = useCountUp(60, 1200, seen);
+  const c = useCountUp(1000, 1600, seen);
 
   return (
     <section className="stats-section" ref={ref}>
@@ -42,21 +42,21 @@ export default function Stats() {
           <h2 className="section-title" style={{ fontSize: "clamp(28px, 3.6vw, 44px)" }}>A few numbers we&rsquo;re proud of.</h2>
           <p className="section-sub">Real wins from real businesses we work with every day.</p>
         </div>
-        <div className="stats-grid">
+     <div className="stats-grid">
           <div className="stat">
             <div className="stat-value">{Math.round(a)}<span className="unit">+</span></div>
-            <div className="stat-label">Businesses partnered</div>
-            <div className="stat-desc">Local owner-operators across six verticals.</div>
+            <div className="stat-label">Websites built</div>
+            <div className="stat-desc">Clients trusting SpearCrest with their growth.</div>
           </div>
           <div className="stat">
-            <div className="stat-value">{seen ? Math.round(b).toLocaleString() : 0}<span className="unit">K+</span></div>
-            <div className="stat-label">Leads generated</div>
-            <div className="stat-desc">Across SEO, paid, and local presence — tracked end-to-end.</div>
+            <div className="stat-value">{Math.round(b)}<span className="unit">+</span></div>
+            <div className="stat-label">Dumpster rental clients</div>
+            <div className="stat-desc">Trusting SpearCrest with their growth.</div>
           </div>
           <div className="stat">
-            <div className="stat-value">{c.toFixed(1)}<span className="unit">×</span></div>
-            <div className="stat-label">Avg. traffic increase</div>
-            <div className="stat-desc">Measured 90 days vs. the 90 days before we started.</div>
+            <div className="stat-value">{seen ? Math.round(c).toLocaleString() : 0}<span className="unit">+</span></div>
+            <div className="stat-label">Leads from Google Ads</div>
+            <div className="stat-desc">Generated for our clients across every vertical.</div>
           </div>
         </div>
       </div>

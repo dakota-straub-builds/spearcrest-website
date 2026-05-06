@@ -3,7 +3,7 @@ import { Astronaut, Satellite } from "./SpaceArt";
 
 const HERO = {
   eyebrow: "Hey, neighbor 👋  Louisville, KY",
-  h1: ["Marketing that actually", "shows up for your business."],
+  h1: ["Services that compound.", "Not services that collide."],
   sub: "We're a small team that runs SEO, Google Ads, and your Business Profile like it's our own shop — because for our partners, it kind of is.",
   primary: "Grab a free audit",
   secondary: "Meet the team",
@@ -20,9 +20,9 @@ export default function Hero() {
         <div className="hero-rings" />
         <div className="hero-orb" />
         <div className="hero-orb b" />
-        <Astronaut className="astronaut a1" variant="a" />
-        <Astronaut className="astronaut a2" variant="b" />
-        <Astronaut className="astronaut a3" variant="c" />
+        <img src="/astronaut-flag.png" alt="" className="astronaut-img a1" />
+            <img src="/astronaut-flag.png" alt="" className="astronaut-img a2" />
+            <img src="/astronaut-flag.png" alt="" className="astronaut-img a3" />
         <Satellite />
         <div className="planet">
           <div className="planet-ring" />
@@ -99,13 +99,20 @@ export default function Hero() {
 
         <div className="trusted">
           <div className="trusted-label">Trusted by service businesses across the South & Midwest</div>
-          <div className="trusted-row">
-            <div>RIDGEWAY ROOFING</div>
-            <div>HAULAWAY</div>
-            <div>EVERGREEN LAW</div>
-            <div>BLUEGRASS RESTORE</div>
-            <div>PEAK LANDSCAPES</div>
-            <div>BIN-IT</div>
+          <div className="ticker">
+            <div className="ticker-track">
+              {[...Array(2)].map((_, i) => (
+                <div className="ticker-set" key={i} aria-hidden={i === 1}>
+                  <img src="/logos/sadoski-dumpster.png" alt="Sadoski Dumpster" />
+                  <img src="/logos/helping-cans.png" alt="Helping Cans" />
+                  <img src="/logos/dumpster-417.png" alt="Dumpster 417" />
+                  <img src="/logos/loz-dumpster-drop.png" alt="LOZ Dumpster Drop" />
+                  <img src="/logos/mini-binz.png" alt="Mini Binz" />
+                  <img src="/logos/borders-dumpsters.png" alt="Borders Dumpsters" />
+                  <img src="/logos/alco-disposal.png" alt="Alco Disposal" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

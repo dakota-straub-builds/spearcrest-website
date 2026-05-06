@@ -1,74 +1,125 @@
 "use client";
-import { useState } from "react";
 import { Icon } from "./icons";
 
-type IconKey = keyof typeof Icon;
-type Service = {
-  key: string; icon: IconKey; name: string; sub?: string; desc: string;
-  price: string; per: string; bullets: string[];
-  feature?: boolean; large?: boolean; wide?: boolean; withAccent?: boolean;
+type Package = {
+  key: string;
+  name: string;
+  badge?: string;
+  bestFor: string;
+  tagline: string;
+  price: string;
+  per: string;
+  bullets: string[];
+  cta: string;
+  featured?: boolean;
 };
 
-const SERVICES: Service[] = [
-  { key: "seo", icon: "search", name: "Targeted SEO", sub: "Local & national", desc: "Rank where your buyers actually search — built around the keywords that turn into calls, not just clicks.", price: "$1,500", per: "/month", bullets: ["Keyword & competitor mapping","On-page + technical fixes","Local citation cleanup","Monthly content sprints"], feature: true, withAccent: true },
-  { key: "gbp", icon: "pin", name: "Google Business Profile", sub: "Management", desc: "Photos, posts, Q&A, review responses — the local presence that wins the map pack.", price: "$750", per: "/month", bullets: ["Weekly posts & photo refresh","Review reply playbook","Q&A & service area tuning","Insights reporting"] },
-  { key: "ads", icon: "ads", name: "Google Ads", sub: "Paid management", desc: "Tightly-scoped campaigns built around buyer intent. We hunt for $20 leads, not $200 ones.", price: "$1,000", per: "/month", bullets: ["Search + Performance Max","Negative keyword grooming","Conversion + call tracking","Weekly budget shaping"], large: true },
-  { key: "heat", icon: "heat", name: "Heat Map Tracking", desc: "See exactly where visitors click, scroll, and bounce. Turn the dead zones into conversions.", price: "Included", per: "with retainer", bullets: ["Click + scroll heatmaps","Session recordings","CRO recommendations"] },
-  { key: "lead", icon: "lead", name: "Lead Tracking", desc: "Every call, form, and chat — attributed to the channel that sent it. No more guessing what worked.", price: "Included", per: "with retainer", bullets: ["Call recording + scoring","Form + chat capture","CRM-ready exports"] },
-  { key: "report", icon: "report", name: "Monthly Reporting", desc: "One page. Real numbers. What we did, what moved, what's next. No filler dashboards.", price: "Included", per: "with retainer", wide: true, bullets: ["Channel-by-channel breakdown","Wins, losses, next bets","30-min review call"] },
+const PACKAGES: Package[] = [
+  {
+    key: "launchpad",
+    name: "Launchpad",
+    bestFor: "Best for $100k – $175k businesses",
+    tagline: "Build the foundation. Get found.",
+    price: "$1,500",
+    per: "/mo",
+    bullets: [
+      "On-Page SEO",
+      "1 piece of content per month",
+      "Google Business Profile optimization & management",
+      "Monthly reporting",
+    ],
+    cta: "Get started",
+  },
+  {
+    key: "ascent",
+    name: "Ascent",
+    badge: "Most Popular",
+    bestFor: "Best for $300k – $500k businesses",
+    tagline: "Start climbing.",
+    price: "$3,000",
+    per: "/mo",
+    bullets: [
+      "Custom website design",
+      "On-Page SEO",
+      "Starter technical and Off-Page SEO",
+      "2 pieces of content per month",
+      "Google Business Profile optimization & management",
+      "Google PPC Ads management",
+      "Ads lead tracking & monthly reporting",
+    ],
+    cta: "Book your strategy call",
+    featured: true,
+  },
+  {
+    key: "orbit",
+    name: "Orbit",
+    bestFor: "Best for $500k – $1M businesses",
+    tagline: "Stay seen. Stay ahead.",
+    price: "$4,500",
+    per: "/mo",
+    bullets: [
+      "Custom website design",
+      "Full technical, On-Page & Off-Page SEO",
+      "4 pieces of content per month",
+      "Google Business Profile optimization & management",
+      "Google PPC Ads management",
+      "Ads lead tracking & monthly reporting",
+    ],
+    cta: "Get started",
+  },
+  {
+    key: "meteor",
+    name: "Meteor",
+    bestFor: "For $1M+ businesses & multi-location",
+    tagline: "Contact for your custom growth plan.",
+    price: "$7,000+",
+    per: "/mo",
+    bullets: [
+      "Enterprise-level SEO & PPC",
+      "Custom website design",
+      "GBP optimization & management",
+      "Lead tracking & weekly custom reporting",
+      "Ideal for multi-location organizations",
+    ],
+    cta: "Get started",
+  },
 ];
 
 export default function Services() {
-  const [openKey, setOpenKey] = useState<string | null>(null);
   return (
-    <section id="services" className="services-section">
+    <section id="services" className="services-section pricing-space">
+      <div className="pricing-bg" aria-hidden="true">
+        <div className="space-stars" />
+        <div className="space-stars b" />
+        <div className="shooting-star s1" />
+        <img src="/rocket.png" alt="" className="pricing-rocket r1" />
+        <img src="/rocket.png" alt="" className="pricing-rocket r2" />
+        <img src="/rocket.png" alt="" className="pricing-rocket r3" />
+      </div>
       <div className="container">
         <div className="section-head">
-          <span className="eyebrow">Services</span>
-          <h2 className="section-title">Pick what helps. Skip what doesn&rsquo;t.</h2>
-          <p className="section-sub">Mix-and-match services priced for owner-operators, not enterprise.</p>
+          <span className="eyebrow">Pricing</span>
+          <h2 className="section-title">Pick a package that fits where you&rsquo;re headed.</h2>
+          <p className="section-sub">Built for owner-operators. Priced for growth, not enterprise overhead.</p>
         </div>
-        <div className="svc-grid">
-          {SERVICES.map((s) => {
-            const cls = ["svc-card"];
-            if (s.feature) cls.push("feature");
-            if (s.large) cls.push("large");
-            if (s.wide) cls.push("wide");
-            if (s.withAccent) cls.push("with-accent");
-            if (openKey === s.key) cls.push("is-open");
-            const IconC = Icon[s.icon];
-            return (
-              <div key={s.key} className={cls.join(" ")} onClick={() => setOpenKey(openKey === s.key ? null : s.key)}>
-                {s.feature && <div className="svc-glow" />}
-                {s.wide ? (
-                  <>
-                    <div style={{ display: "flex", flexDirection: "column", gap: 10, maxWidth: "62%" }}>
-                      <div className="svc-icon"><IconC /></div>
-                      <h3 className="svc-name">{s.name}</h3>
-                      <p className="svc-desc">{s.desc}</p>
-                      <div className="svc-detail"><div><ul>{s.bullets.map((b,i)=><li key={i}>{b}</li>)}</ul></div></div>
-                    </div>
-                    <div style={{ textAlign: "right" }}>
-                      <div className="svc-price">{s.price}<span className="per"> {s.per}</span></div>
-                      <div className="svc-cta-mini" style={{ marginTop: 14, justifyContent: "flex-end" }}>Learn more <Icon.arrow /></div>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div className="svc-icon"><IconC /></div>
-                    <h3 className="svc-name">{s.name}</h3>
-                    {s.sub && <div style={{ fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.06em", textTransform: "uppercase", color: s.feature ? "rgba(255,255,255,0.55)" : "var(--muted-2)", marginTop: -8 }}>{s.sub}</div>}
-                    <p className="svc-desc">{s.desc}</p>
-                    <div className="svc-detail"><div><ul>{s.bullets.map((b,i)=><li key={i}>{b}</li>)}</ul></div></div>
-                    <div className="svc-foot">
-                      <div className="svc-price">{s.price}<span className="per"> {s.per}</span></div>
-                      <div className="svc-cta-mini">Details <Icon.arrow /></div>
-                    </div>
-                  </>
-                )}
-              </div>
-            );
-          })}
+        <div className="pkg-grid">
+          {PACKAGES.map((p) => (
+            <div key={p.key} className={"pkg-card" + (p.featured ? " featured" : "")}>
+              {p.badge && <div className="pkg-badge">{p.badge}</div>}
+              <div className="pkg-name">{p.name} Package</div>
+              <div className="pkg-best">{p.bestFor}</div>
+              <div className="pkg-tagline">{p.tagline}</div>
+              <div className="pkg-price">{p.price}<span className="per">{p.per}</span></div>
+              <ul className="pkg-bullets">
+                {p.bullets.map((b, i) => (
+                  <li key={i}><span className="pkg-check">✓</span>{b}</li>
+                ))}
+              </ul>
+              <a href="#contact" className="btn pkg-cta">
+                {p.cta}<span className="arrow"><Icon.arrowUR /></span>
+              </a>
+            </div>
+          ))}
         </div>
       </div>
     </section>
