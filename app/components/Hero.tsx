@@ -2,9 +2,8 @@ import { Icon } from "./icons";
 import { Astronaut, Satellite } from "./SpaceArt";
 
 const HERO = {
-  eyebrow: "Hey, neighbor 👋  Louisville, KY",
-  h1: ["Services that compound.", "Not services that collide."],
-  sub: "We're a small team that runs SEO, Google Ads, and your Business Profile like it's our own shop — because for our partners, it kind of is.",
+  eyebrow: "Louisville, KY",
+  sub: "We're a small team that runs SEO, Google Ads, and Manages your Google Business Profile like it's our own shop — because for our partners, it kind of is.",
   primary: "Grab a free audit",
   secondary: "Meet the team",
 };
@@ -21,8 +20,10 @@ export default function Hero() {
         <div className="hero-orb" />
         <div className="hero-orb b" />
         <img src="/astronaut-flag.png" alt="" className="astronaut-img a1" />
-            <img src="/astronaut-flag.png" alt="" className="astronaut-img a2" />
-            <img src="/astronaut-flag.png" alt="" className="astronaut-img a3" />
+        <img src="/astronaut-flag.png" alt="" className="astronaut-img a3" />
+        <img src="/astronaut-flag.png" alt="" className="astronaut-img a4" />
+        <img src="/astronaut-flag.png" alt="" className="astronaut-img a5" />
+        <img src="/astronaut-flag.png" alt="" className="astronaut-img a6" />
         <Satellite />
         <div className="planet">
           <div className="planet-ring" />
@@ -36,9 +37,9 @@ export default function Hero() {
             <span className="eyebrow">{HERO.eyebrow}</span>
             <h1 className="hero-h1">
               <span className="accent-dot" />
-              {HERO.h1[0]}
+              <em>Marketing that actually</em> <strong></strong>.
               <br />
-              <span style={{ opacity: 0.55 }}>{HERO.h1[1]}</span>
+              <span style={{ opacity: 0.55 }}>shows up for your <strong><em>business</em></strong>.</span>
             </h1>
             <p className="hero-sub">{HERO.sub}</p>
             <div className="hero-cta">
@@ -51,11 +52,11 @@ export default function Hero() {
             <div className="hero-meta">
               <div className="hero-meta-item">
                 <span className="dot-live" />
-                <span><b>4 spots</b> open this quarter</span>
+                <span><b>Now Accepting</b> New Clients</span>
               </div>
               <div className="hero-meta-item">
                 <span>★★★★★</span>
-                <span><b>4.9</b> avg client rating</span>
+                <span><b>We Only Work With 1 Client Per Service Area</b> </span>
               </div>
             </div>
           </div>
@@ -77,7 +78,7 @@ export default function Hero() {
               <div className="fc-label">Local pack rank</div>
               <div className="fc-value">#1 <span style={{ fontSize: 14, color: "rgba(255,255,255,0.5)" }}>↑6</span></div>
               <div style={{ display: "flex", gap: 6, marginTop: 10 }}>
-                {['"junk removal louisville"','"dumpster rental near me"'].map((q,i)=>(
+                {['"dumpster rental louisville"','"dumpster rental near me"'].map((q,i)=>(
                   <span key={i} style={{ fontSize: 10, padding: "4px 8px", borderRadius: 6, background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.7)", fontFamily: "var(--font-mono)" }}>{q}</span>
                 ))}
               </div>
@@ -98,7 +99,7 @@ export default function Hero() {
         </div>
 
         <div className="trusted">
-          <div className="trusted-label">Trusted by service businesses across the South & Midwest</div>
+          <div className="trusted-label">Trusted by service businesses across the World</div>
           <div className="ticker">
             <div className="ticker-track">
               {[...Array(2)].map((_, i) => (

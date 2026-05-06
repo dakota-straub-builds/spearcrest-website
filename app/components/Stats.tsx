@@ -36,11 +36,14 @@ export default function Stats() {
 
   return (
     <section className="stats-section" ref={ref}>
+      <img src="/rocket.png" alt="" className="stats-rocket r1" />
+      <img src="/rocket.png" alt="" className="stats-rocket r2" />
+      <img src="/rocket.png" alt="" className="stats-rocket r3" />
       <div className="container">
-        <div className="section-head" style={{ marginBottom: 48 }}>
-          <span className="eyebrow">By the numbers</span>
-          <h2 className="section-title" style={{ fontSize: "clamp(28px, 3.6vw, 44px)" }}>A few numbers we&rsquo;re proud of.</h2>
-          <p className="section-sub">Real wins from real businesses we work with every day.</p>
+        <div className="section-head center" style={{ marginBottom: 40 }}>
+          <span className="eyebrow">BY THE NUMBERS</span>
+          <h2 className="section-title" style={{ fontSize: "clamp(28px, 3.6vw, 44px)" }}></h2>
+          <p className="section-sub">REAL WINS FROM REAL BUSINESSES WE WORK WITH EVERYDAY.</p>
         </div>
      <div className="stats-grid">
           <div className="stat">
