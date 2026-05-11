@@ -10,7 +10,7 @@ export default function BrowseWorks() {
   return (
     <section id="works" className="browse-works">
       <div className="container">
-        <div className="browse-works-header">">
+        <div className="browse-works-header">"
           <div>
             <span className="browse-works-tag">WORKS</span>
             <h2 className="browse-works-title">
