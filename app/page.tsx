@@ -1,6 +1,5 @@
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
-import Stats from "./components/Stats";
 import Services from "./components/Services";
 import Industries from "./components/Industries";
 import Process from "./components/Process";
@@ -14,7 +13,6 @@ export default function Page() {
     <>
       <Nav />
       <Hero />
-      <Stats />
       <Services />
       <Industries />
       <Process />

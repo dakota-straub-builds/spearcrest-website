@@ -21,9 +21,6 @@ export default function Hero() {
         <div className="hero-orb b" />
         <img src="/astronaut-flag.png" alt="" className="astronaut-img a1" />
         <img src="/astronaut-flag.png" alt="" className="astronaut-img a3" />
-        <img src="/astronaut-flag.png" alt="" className="astronaut-img a4" />
-        <img src="/astronaut-flag.png" alt="" className="astronaut-img a5" />
-        <img src="/astronaut-flag.png" alt="" className="astronaut-img a6" />
         <Satellite />
         <div className="planet">
           <div className="planet-ring" />

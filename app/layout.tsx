@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Instrument_Serif, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google'
+import { Instrument_Serif, Bricolage_Grotesque, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 
 const instrumentSerif = Instrument_Serif({
@@ -10,7 +10,7 @@ const instrumentSerif = Instrument_Serif({
   display: 'swap',
 })
 
-const plusJakarta = Plus_Jakarta_Sans({
+const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
   variable: '--font-jakarta',
   display: 'swap',
@@ -51,7 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${instrumentSerif.variable} ${plusJakarta.variable} ${jetbrainsMono.variable}`}
+        className={`${instrumentSerif.variable} ${bricolage.variable} ${jetbrainsMono.variable}`}
       >
         {children}
       </body>
